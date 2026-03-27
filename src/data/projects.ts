@@ -14,7 +14,7 @@ export const projects: Project[] = [
     id: "leone-ai",
     title: "LeoneAI Trading Assistant",
     description: "An AI-powered financial trading assistant that analyses market trends and provides intelligent trading insights for the Sierra Leone market. Available as a web app and mobile app.",
-    tags: ["JavaScript", "React", "Vite", "TailwindCSS", "Chart.js", "Recharts", "React Native", "Expo"],
+    tags: ["JavaScript", "React", "Vite", "TailwindCSS", "Python", "Chart.js", "Recharts", "React Native", "Expo"],
     image: "/projects/leone-ai.png",
     liveUrl: "https://leoneai-trading-assistant.vercel.app/",
     githubUrl: "https://github.com/brotherJoe-7",
