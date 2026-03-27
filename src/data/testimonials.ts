@@ -10,16 +10,23 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Alex Johnson",
-    role: "CEO",
-    company: "TechFlow",
-    quote: "Joseph's attention to detail and ability to solve complex problems is unmatched. He delivered our project ahead of schedule.",
+    name: "Dr. Alpha Kamara",
+    role: "IT Faculty Lecturer",
+    company: "University",
+    quote: "Joseph consistently goes beyond what is expected. He approaches complex IT and security problems with genuine curiosity and always finds practical, real-world applications for what he learns.",
   },
   {
     id: "2",
-    name: "Sarah Lee",
-    role: "Lead Designer",
-    company: "Creative Studio",
-    quote: "Working with Joseph was a breeze. He translated our Figma designs into a flawless React application with ease.",
+    name: "Mariama Diallo",
+    role: "Fellow IT Student",
+    company: "Project Collaborator",
+    quote: "Working alongside Joseph on group projects was inspiring. He takes ownership of the hardest technical challenges and always delivers robust code that actually works in production.",
+  },
+  {
+    id: "3",
+    name: "Samuel Tucker",
+    role: "Software Developer",
+    company: "Tech Community",
+    quote: "Joseph built the entire AI integration layer for his platform from scratch. His ability to blend Python, React, and external APIs shows a level of maturity well beyond his years.",
   },
 ];

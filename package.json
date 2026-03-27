@@ -15,6 +15,7 @@
   "type": "module",
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
+    "@vercel/analytics": "^2.0.1",
     "@waline/client": "^3.13.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",

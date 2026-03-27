@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Tag } from 'lucide-react';
 import { Project } from '../data/projects';
@@ -18,8 +19,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative bg-white rounded-3xl overflow-hidden border border-slate-100 flex flex-col h-full shadow-sm hover:shadow-2xl hover:border-red-200 hover:-translate-y-1 transition-all duration-500"
     >
-      {/* Image */}
-      <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-slate-100">
+      {/* Image Linked to Case Study */}
+      <Link href={`/projects/${project.id}`} className="relative h-52 sm:h-60 w-full overflow-hidden bg-slate-100 block cursor-pointer">
         <Image
           src={project.image}
           alt={project.title}
@@ -29,7 +30,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         />
         {/* Overlay with action buttons */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end justify-between p-5">
-          <span className="text-white text-xs font-black uppercase tracking-widest opacity-80">View Project</span>
+          <span className="text-white text-xs font-black uppercase tracking-widest opacity-80 flex items-center gap-1">View Case Study</span>
           <div className="flex gap-3">
             {project.liveUrl && (
               <a
@@ -57,15 +58,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-6 sm:p-7 flex flex-col flex-grow">
 
-        {/* Title */}
-        <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-3 leading-snug group-hover:text-red-600 transition-colors">
-          {project.title}
-        </h3>
+        {/* Title Linked to Case Study */}
+        <Link href={`/projects/${project.id}`}>
+          <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-3 leading-snug group-hover:text-red-600 transition-colors cursor-pointer">
+            {project.title}
+          </h3>
+        </Link>
 
         {/* Description */}
         <p className="text-slate-500 text-sm font-medium leading-relaxed flex-grow mb-5 line-clamp-3">

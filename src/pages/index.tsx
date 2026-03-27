@@ -8,6 +8,7 @@ import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
 import { skills } from '@/data/skills';
 import { testimonials } from '@/data/testimonials';
+import GitHubStats from '@/components/GitHubStats';
 
 export default function Home() {
   const featuredProjects = projects.filter(p => p.featured);
@@ -77,12 +78,13 @@ export default function Home() {
           >
             Explore My Work <ArrowRight className="ml-2" size={20} />
           </Link>
-          <Link
-            href="/contact"
+          <a
+            href="/Joseph_Nimneh_Resume.pdf"
+            download
             className="inline-flex items-center justify-center px-10 py-4 bg-white border-2 border-slate-300 text-slate-800 rounded-full font-black text-base sm:text-lg hover:border-red-400 hover:text-red-600 active:scale-95 transition-all"
           >
-            Contact Me
-          </Link>
+            Download Resume
+          </a>
         </motion.div>
       </section>
 
@@ -193,6 +195,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── GitHub Activity ── */}
+      <section className="py-20">
+        <GitHubStats username="brotherJoe-7" />
+      </section>
+
       {/* ── Testimonials ── */}
       <section className="py-20">
         <SectionTitle
@@ -237,12 +244,13 @@ export default function Home() {
           <p className="text-slate-400 text-lg sm:text-xl mb-10 max-w-2xl mx-auto relative z-10 font-medium">
             Open to collaboration, internships, and freelance projects in AI, software development, and cybersecurity.
           </p>
-          <Link
-            href="/contact"
+          <a
+            href="/Joseph_Nimneh_Resume.pdf"
+            download
             className="inline-flex items-center px-10 py-5 bg-red-600 text-white rounded-full font-black text-lg hover:bg-red-700 transition-all shadow-2xl shadow-red-900/40 relative z-10"
           >
-            Get in Touch <ArrowRight className="ml-3" size={22} />
-          </Link>
+            Download Resume <ArrowRight className="ml-3" size={22} />
+          </a>
         </div>
       </section>
 
