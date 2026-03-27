@@ -37,7 +37,7 @@ export default function AIAssistant() {
             initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-[60] w-[calc(100vw-3rem)] sm:w-96 h-[500px] bg-white rounded-[2rem] shadow-2xl border border-slate-100 flex flex-col overflow-hidden"
+            className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[60] w-full h-full sm:w-96 sm:h-[500px] bg-white sm:rounded-[2rem] shadow-2xl border border-slate-100 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-6 bg-red-600 text-white flex items-center gap-3">
@@ -45,7 +45,13 @@ export default function AIAssistant() {
                 <Bot size={20} />
               </div>
               <div>
-                <h3 className="font-black text-sm uppercase tracking-widest leading-none mb-1">Joseph-AI</h3>
+                <h3 className="font-black text-sm uppercase tracking-widest leading-none mb-1 flex items-center gap-2">
+                  Joseph-AI
+                  <span className="flex items-center gap-1 bg-white/20 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-tighter">
+                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                    Online
+                  </span>
+                </h3>
                 <p className="text-[10px] text-white/70 font-bold uppercase tracking-wide">Professional Portfolio Assistant</p>
               </div>
               <button 
