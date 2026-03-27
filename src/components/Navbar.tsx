@@ -34,22 +34,23 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur-md py-4 sm:py-3 shadow-md border-b border-slate-100'
-          : 'bg-white/80 backdrop-blur-sm py-6 sm:py-5'
+          ? 'bg-white/95 backdrop-blur-md py-2 sm:py-3 shadow-md border-b border-slate-100'
+          : 'bg-white/80 backdrop-blur-sm py-4 sm:py-5'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
 
         {/* Logo */}
         <Link href="/" className="flex items-center leading-none">
-          <Image
-            src="/logo.png"
-            alt="Joseph Nimneh"
-            width={120}
-            height={52}
-            className="object-contain"
-            priority
-          />
+          <div className="relative w-[100px] h-[42px] sm:w-[120px] sm:h-[52px]">
+            <Image
+              src="/logo.png"
+              alt="Joseph Nimneh"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop links */}
