@@ -109,7 +109,7 @@ export default function AIAssistant() {
               )}
               {error && (
                 <div className="p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-wider text-center">
-                  AI Service currently unavailable. Please try again later.
+                  Error: {error.message || 'AI Service currently unavailable.'}
                 </div>
               )}
             </div>

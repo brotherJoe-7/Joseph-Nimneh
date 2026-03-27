@@ -30,17 +30,6 @@ export default function Home() {
         </motion.div>
 
         {/* Status badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <span className="inline-flex items-center gap-2 px-5 py-2 bg-red-50 border border-red-200 text-red-700 rounded-full text-sm font-bold uppercase tracking-widest">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            3rd Year IT Student @ Limkokwing University · Graduating 2027
-          </span>
-        </motion.div>
-
         {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -51,6 +40,22 @@ export default function Home() {
           Joseph{' '}
           <span className="text-red-600">Nimneh</span>
         </motion.h1>
+
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-2xl shadow-sm"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+          </span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">
+            3rd Year IT Student @ Limkokwing University · Graduating 2027
+          </span>
+        </motion.div>
 
         {/* Tagline */}
         <motion.p
@@ -84,14 +89,6 @@ export default function Home() {
           >
             View Resume <span className="ml-2 opacity-30">↗</span>
           </Link>
-          <a
-            href="/Joseph_Nimneh_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-10 py-4 bg-white border-2 border-slate-300 text-slate-800 rounded-full font-black text-base sm:text-lg hover:border-red-400 hover:text-red-600 active:scale-95 transition-all"
-          >
-            View Resume
-          </a>
         </motion.div>
       </section>
 

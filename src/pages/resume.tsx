@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '@/components/Layout';
 import { motion } from 'framer-motion';
 import { 
   Download, 
@@ -61,7 +60,7 @@ const JosephResume = () => {
   ];
 
   return (
-    <Layout title="Resume | Joseph Nimneh" description="Professional Resume of Joseph Nimneh - IT Student, Leader, and Innovator.">
+    <>
       <div className="min-h-screen bg-slate-50 py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto space-y-8">
           
@@ -201,7 +200,7 @@ const JosephResume = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
