@@ -108,7 +108,7 @@ const JosephResume = () => {
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-bold text-slate-900">Limkokwing University</h3>
-                    <p className="text-slate-500 text-sm font-medium leading-relaxed">IT Creative Technology</p>
+                    <p className="text-slate-500 text-sm font-medium leading-relaxed">Information Technology</p>
                     <p className="text-red-600/60 text-[10px] font-black uppercase tracking-tighter mt-1">Graduating 2027</p>
                   </div>
                 </div>

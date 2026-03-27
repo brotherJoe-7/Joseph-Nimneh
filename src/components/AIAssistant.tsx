@@ -109,7 +109,13 @@ export default function AIAssistant() {
               )}
               {error && (
                 <div className="p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-wider text-center">
-                  Error: {error.message || 'AI Service currently unavailable.'}
+                  Connection Error: {error.message || 'AI Service temporarily unavailable.'}
+                  <button 
+                    onClick={() => window.location.reload()} 
+                    className="block mx-auto mt-2 underline opacity-60 hover:opacity-100"
+                  >
+                    Refresh Page
+                  </button>
                 </div>
               )}
             </div>
