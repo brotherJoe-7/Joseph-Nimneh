@@ -1,25 +1,18 @@
 export const nextSeoConfig = {
-  title: "Joseph Nimneh | Portfolio",
-  titleTemplate: "%s | Joseph Nimneh",
   defaultTitle: "Joseph Nimneh | Portfolio",
-  description: "A professional portfolio showcasing the projects and skills of Joseph Nimneh.",
+  description: "Joseph Nimneh — IT Student specialising in Cybersecurity, AI, and Software Development. Based in West Africa.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://josephnimneh.dev/",
-    site_name: "Joseph Nimneh Portfolio",
+    url: "https://joseph-nimneh.vercel.app/",
+    site_name: "Joseph Nimneh",
     images: [
       {
-        url: "/logo.png",
+        url: "https://joseph-nimneh.vercel.app/profile.jpg",
         width: 1200,
         height: 630,
         alt: "Joseph Nimneh Portfolio",
       },
     ],
-  },
-  twitter: {
-    handle: "@josephnimneh",
-    site: "@josephnimneh",
-    cardType: "summary_large_image",
   },
 };
