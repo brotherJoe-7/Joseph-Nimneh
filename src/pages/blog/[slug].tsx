@@ -6,7 +6,7 @@ import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { blogPosts, BlogPost } from '@/data/blog';
 import ShareButtons from '@/components/ShareButtons';
 import WalineComments from '@/components/WalineComments';
-import Layout from '@/components/Layout';
+import Head from 'next/head';
 
 const SITE_URL = 'https://joseph-nimneh.vercel.app';
 
@@ -18,13 +18,16 @@ export default function BlogPostPage({ post }: Props) {
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
 
   return (
-    <Layout
-      title={post.title}
-      description={post.excerpt}
-      ogUrl={`/blog/${post.slug}`}
-      ogImage={`${SITE_URL}/profile.jpeg`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-40 max-w-3xl">
+    <>
+      <Head>
+        <title>{post.title} | Joseph Nimneh</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={`${post.title} | Joseph Nimneh`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={`${SITE_URL}/blog/${post.slug}`} />
+        <meta property="og:image" content={`${SITE_URL}/profile.jpeg`} />
+      </Head>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-40 max-w-3xl">
 
         {/* Back link */}
         <motion.div
@@ -114,7 +117,7 @@ export default function BlogPostPage({ post }: Props) {
         <WalineComments path={`/blog/${post.slug}`} />
 
       </div>
-    </Layout>
+    </>
   );
 }
 

@@ -77,7 +77,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Tags — scroll on mobile so no wrapping overflow */}
         <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-50">
-          {project.tags.slice(0, 6).map(tag => (
+          {project.tags.slice(0, 7).map(tag => (
             <span
               key={tag}
               className="inline-flex items-center gap-1 px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-full text-[11px] font-black uppercase tracking-wide text-slate-500 group-hover:border-red-100 group-hover:bg-red-50 group-hover:text-red-600 transition-all whitespace-nowrap"
@@ -85,9 +85,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {tag}
             </span>
           ))}
-          {project.tags.length > 6 && (
+          {project.tags.length > 7 && (
             <span className="inline-flex items-center px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-full text-[11px] font-black text-slate-400">
-              +{project.tags.length - 6} more
+              +{project.tags.length - 7} more
             </span>
           )}
         </div>

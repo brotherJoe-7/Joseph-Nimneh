@@ -34,8 +34,8 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur-md py-3 shadow-md border-b border-slate-100'
-          : 'bg-white/80 backdrop-blur-sm py-5'
+          ? 'bg-white/95 backdrop-blur-md py-4 sm:py-3 shadow-md border-b border-slate-100'
+          : 'bg-white/80 backdrop-blur-sm py-6 sm:py-5'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
@@ -116,9 +116,9 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-white border-b border-slate-100 shadow-xl"
+            className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-100 shadow-2xl rounded-b-[2.5rem]"
           >
-            <div className="flex flex-col items-center gap-6 py-10 px-6">
+            <div className="flex flex-col items-center gap-7 py-12 px-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
