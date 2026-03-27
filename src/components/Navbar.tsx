@@ -72,10 +72,11 @@ export default function Navbar() {
           <div className="flex items-center gap-4 border-l border-slate-200 pl-8">
             <a
               href="/Joseph_Nimneh_Resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-black uppercase tracking-widest text-slate-700 hover:text-red-600 transition-colors mr-2"
             >
-              Resume <span className="text-red-600 font-normal ml-0.5">↓</span>
+              Resume <span className="text-red-600 font-normal ml-0.5">↗</span>
             </a>
             <a
               href="https://github.com/brotherJoe-7"
@@ -133,11 +134,12 @@ export default function Navbar() {
               ))}
               <a
                 href="/Joseph_Nimneh_Resume.pdf"
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-black uppercase tracking-tighter text-slate-800 flex items-center gap-2"
               >
-                Resume <span className="text-red-600 bg-red-50 p-1.5 rounded-lg text-lg">↓</span>
+                Resume <span className="text-red-600 bg-red-50 p-1.5 rounded-lg text-lg">↗</span>
               </a>
               <div className="flex items-center gap-8 pt-6 border-t border-slate-100 w-full justify-center">
                 <a href="https://github.com/brotherJoe-7" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600"><Github size={28} /></a>

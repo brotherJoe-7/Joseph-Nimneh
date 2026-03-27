@@ -80,10 +80,11 @@ export default function Home() {
           </Link>
           <a
             href="/Joseph_Nimneh_Resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-10 py-4 bg-white border-2 border-slate-300 text-slate-800 rounded-full font-black text-base sm:text-lg hover:border-red-400 hover:text-red-600 active:scale-95 transition-all"
           >
-            Download Resume
+            View Resume
           </a>
         </motion.div>
       </section>
@@ -246,10 +247,11 @@ export default function Home() {
           </p>
           <a
             href="/Joseph_Nimneh_Resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-10 py-5 bg-red-600 text-white rounded-full font-black text-lg hover:bg-red-700 transition-all shadow-2xl shadow-red-900/40 relative z-10"
           >
-            Download Resume <ArrowRight className="ml-3" size={22} />
+            View Resume <ArrowRight className="ml-3" size={22} />
           </a>
         </div>
       </section>
