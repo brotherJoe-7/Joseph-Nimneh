@@ -88,10 +88,11 @@ const JosephResume = () => {
             </div>
             <a 
               href="/Joseph_Nimneh_Resume.pdf" 
-              download
-              className="flex items-center gap-3 px-8 py-4 bg-red-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-red-700 transition-all shadow-xl shadow-red-900/20 active:scale-95"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-8 py-4 bg-red-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-red-700 transition-all shadow-xl shadow-red-900/20 active:scale-95 text-center"
             >
-              <Download size={20} /> Download PDF
+              <ExternalLink size={20} /> View Full PDF
             </a>
           </motion.div>
 

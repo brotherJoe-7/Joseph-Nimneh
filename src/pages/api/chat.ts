@@ -8,6 +8,14 @@ export const config = {
 
 export default async function handler(req: Request) {
   try {
+    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    if (!apiKey) {
+      return new Response(JSON.stringify({ error: 'AI Error: Google API Key is missing. Please add it to your environment variables.' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     const { messages } = await req.json();
 
     const result = await streamText({

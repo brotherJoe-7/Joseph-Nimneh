@@ -72,14 +72,7 @@ export default function Navbar() {
           ))}
 
           <div className="flex items-center gap-4 border-l border-slate-200 pl-8">
-            <a
-              href="/Joseph_Nimneh_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-red-700 transition-all shadow-lg shadow-red-900/10 active:scale-95 flex items-center gap-2"
-            >
-              PDF <Download size={14} className="stroke-[3]" />
-            </a>
+
             <a
               href="https://github.com/brotherJoe-7"
               target="_blank"
@@ -134,15 +127,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="/Joseph_Nimneh_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="text-2xl font-black uppercase tracking-tighter text-slate-800 flex items-center gap-2"
-              >
-                Resume <span className="text-red-600 bg-red-50 p-1.5 rounded-lg text-lg">↗</span>
-              </a>
+
               <div className="flex items-center gap-8 pt-6 border-t border-slate-100 w-full justify-center">
                 <a href="https://github.com/brotherJoe-7" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600"><Github size={28} /></a>
                 <a href="https://www.linkedin.com/in/joseph-nimneh-597782296" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600"><Linkedin size={28} /></a>
