@@ -19,7 +19,7 @@ export default async function handler(req: Request) {
       CONTEXT ABOUT JOSEPH NIMNEH:
       - Role: IT Student specialising in Cybersecurity, AI, and Software Development.
       - Location: Based in West Africa (Sierra Leone connection).
-      - Education: Studying at Rising Academy Network.
+      - Education: Studying at Limkokwing University of Creative Technology.
       - Certifications tracking: CompTIA Security+, CEH (Certified Ethical Hacker).
       - Core Skills: Python, FastAPI, React, JavaScript, TypeScript, Next.js, Node.js, PostgreSQL, MongoDB, TailwindCSS, Vite.
       

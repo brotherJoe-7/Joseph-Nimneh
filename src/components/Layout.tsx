@@ -14,7 +14,7 @@ interface LayoutProps {
 
 const SITE_URL = 'https://joseph-nimneh.vercel.app';
 const DEFAULT_TITLE = 'Joseph Nimneh | Portfolio';
-const DEFAULT_DESC = 'IT Student specialising in Cybersecurity, AI, and Software Development. Based in West Africa, building real-world digital solutions.';
+const DEFAULT_DESC = 'IT Student at Limkokwing University of Creative Technology specialising in Cybersecurity, AI, and Software Development.';
 const DEFAULT_IMAGE = `${SITE_URL}/profile.jpeg`;
 
 export default function Layout({ children, title, description, ogImage, ogUrl }: LayoutProps) {

@@ -37,7 +37,7 @@ export default function Home() {
         >
           <span className="inline-flex items-center gap-2 px-5 py-2 bg-red-50 border border-red-200 text-red-700 rounded-full text-sm font-bold uppercase tracking-widest">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            3rd Year IT Student · Graduating August 2027
+            3rd Year IT Student @ Limkokwing University · Graduating 2027
           </span>
         </motion.div>
 
@@ -95,7 +95,7 @@ export default function Home() {
           <div className="space-y-4">
             <h2 className="text-2xl font-black uppercase text-red-600 tracking-tight">Career Paths</h2>
             <p className="text-slate-500 leading-relaxed text-sm">
-              As an IT student with hands-on project experience, I am building toward a versatile technical professional career across multiple specialisations.
+              As an IT student at Limkokwing University of Creative Technology with hands-on project experience, I am building toward a versatile technical professional career.
             </p>
           </div>
           <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-3">
