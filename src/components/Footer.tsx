@@ -54,8 +54,8 @@ export default function Footer() {
         <div className="mt-14 pt-8 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400 text-xs font-black uppercase tracking-[0.15em]">
           <p className="flex items-center justify-center sm:justify-start gap-1">
             © {new Date().getFullYear()} Joseph Nimneh. All Rights Reserved.
-            <Link href="/studio" className="flex items-center justify-center w-4 h-4 text-red-600 opacity-40 hover:opacity-100 transition-opacity" title="Studio">
-              <span className="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+            <Link href="/studio" className="ml-1 text-[10px] font-black text-red-600 opacity-60 hover:opacity-100 transition-opacity" title="Studio">
+              ST
             </Link>
           </p>
           <p>Built with Next.js · TypeScript · TailwindCSS</p>
