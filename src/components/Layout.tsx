@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import AIAssistant from './AIAssistant';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -62,6 +63,7 @@ export default function Layout({ children, title, description, ogImage, ogUrl }:
       </main>
 
       <Footer />
+      <AIAssistant />
     </div>
   );
 }

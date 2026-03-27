@@ -1,0 +1,130 @@
+import React, { useState, useRef, useEffect } from 'react';
+import { useChat } from 'ai/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
+
+export default function AIAssistant() {
+  const [isOpen, setIsOpen] = useState(false);
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom of chat
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  return (
+    <>
+      {/* Floating Toggle Button */}
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-6 right-6 z-[60] w-14 h-14 bg-red-600 text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-red-700 transition-colors"
+        aria-label="Ask Joseph AI"
+      >
+        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+      </motion.button>
+
+      {/* Chat Window */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-24 right-6 z-[60] w-[calc(100vw-3rem)] sm:w-96 h-[500px] bg-white rounded-[2rem] shadow-2xl border border-slate-100 flex flex-col overflow-hidden"
+          >
+            {/* Header */}
+            <div className="p-6 bg-red-600 text-white flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <Bot size={20} />
+              </div>
+              <div>
+                <h3 className="font-black text-sm uppercase tracking-widest leading-none mb-1">Joseph-AI</h3>
+                <p className="text-[10px] text-white/70 font-bold uppercase tracking-wide">Professional Portfolio Assistant</p>
+              </div>
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="ml-auto p-1 hover:bg-white/10 rounded-lg transition-colors"
+                aria-label="Close"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Messages Area */}
+            <div 
+              ref={scrollRef}
+              className="flex-grow p-6 overflow-y-auto space-y-4 bg-slate-50/50"
+            >
+              {messages.length === 0 && (
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Sparkles size={24} />
+                  </div>
+                  <p className="text-slate-900 font-black text-sm mb-2">How can I help you?</p>
+                  <p className="text-slate-500 text-xs font-medium px-4">Ask me about Joseph's tech stack, detailed projects, or how to contact him.</p>
+                </div>
+              )}
+              
+              {messages.map((m) => (
+                <div 
+                  key={m.id} 
+                  className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div className={`max-w-[85%] flex gap-2 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${m.role === 'user' ? 'bg-slate-200 text-slate-600' : 'bg-red-100 text-red-600'}`}>
+                      {m.role === 'user' ? <User size={14} /> : <Bot size={14} />}
+                    </div>
+                    <div className={`p-4 rounded-2xl text-sm font-medium leading-relaxed shadow-sm ${
+                      m.role === 'user' 
+                        ? 'bg-red-600 text-white rounded-tr-none' 
+                        : 'bg-white text-slate-700 border border-slate-100 rounded-tl-none'
+                    }`}>
+                      {m.content}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-white border border-slate-100 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" />
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.4s]" />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Input Area */}
+            <form 
+              onSubmit={handleSubmit}
+              className="p-4 bg-white border-t border-slate-100 flex gap-2"
+            >
+              <input
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Ask me anything about Joseph..."
+                className="flex-grow px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600 font-medium"
+              />
+              <button
+                type="submit"
+                disabled={isLoading || !input.trim()}
+                className="w-11 h-11 bg-red-600 text-white rounded-xl flex items-center justify-center hover:bg-red-700 disabled:bg-slate-200 disabled:text-slate-400 transition-all shadow-lg shadow-red-900/10"
+              >
+                <Send size={18} />
+              </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
