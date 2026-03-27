@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://josephnimneh.dev
+
+# Sitemaps
+Sitemap: https://josephnimneh.dev/sitemap.xml
