@@ -41,16 +41,15 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 leading-none">
+        <Link href="/" className="flex items-center leading-none">
           <Image
             src="/logo.png"
-            alt="Joseph Nimneh logo"
-            width={44}
-            height={44}
-            className="rounded-lg object-contain"
+            alt="Joseph Nimneh"
+            width={120}
+            height={52}
+            className="object-contain"
             priority
           />
-          <span className="text-2xl font-black tracking-tighter text-red-600">JN.</span>
         </Link>
 
         {/* Desktop links */}
