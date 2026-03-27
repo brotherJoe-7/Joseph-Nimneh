@@ -1,12 +1,11 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { blogPosts, BlogPost } from '@/data/blog';
 import ShareButtons from '@/components/ShareButtons';
-import GiscusComments from '@/components/GiscusComments';
+import WalineComments from '@/components/WalineComments';
 import Layout from '@/components/Layout';
 
 const SITE_URL = 'https://joseph-nimneh.vercel.app';
@@ -112,7 +111,7 @@ export default function BlogPostPage({ post }: Props) {
         <ShareButtons url={postUrl} title={post.title} />
 
         {/* Comments */}
-        <GiscusComments />
+        <WalineComments path={`/blog/${post.slug}`} />
 
       </div>
     </Layout>
