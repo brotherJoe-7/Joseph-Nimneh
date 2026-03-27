@@ -52,7 +52,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 pt-8 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400 text-xs font-black uppercase tracking-[0.15em]">
-          <p>© {new Date().getFullYear()} Joseph Nimneh. All Rights Reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Joseph Nimneh. All Rights Reserved.
+            <Link href="/studio" className="ml-1 opacity-20 hover:opacity-100 transition-opacity cursor-default">.</Link>
+          </p>
           <p>Built with Next.js · TypeScript · TailwindCSS</p>
         </div>
       </div>
