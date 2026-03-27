@@ -5,7 +5,7 @@ import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom of chat
@@ -105,6 +105,11 @@ export default function AIAssistant() {
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.2s]" />
                     <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.4s]" />
                   </div>
+                </div>
+              )}
+              {error && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase tracking-wider text-center">
+                  AI Service currently unavailable. Please try again later.
                 </div>
               )}
             </div>

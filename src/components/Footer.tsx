@@ -24,8 +24,8 @@ export default function Footer() {
 
           {/* Nav links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm font-black uppercase tracking-widest">
-            {['/', '/projects', '/blog', '/contact'].map((href, i) => {
-              const labels = ['Home', 'Projects', 'Blog', 'Contact'];
+            {['/', '/projects', '/blog', '/resume', '/contact'].map((href, i) => {
+              const labels = ['Home', 'Projects', 'Blog', 'Resume', 'Contact'];
               return (
                 <Link key={href} href={href} className="text-slate-500 hover:text-red-600 transition-colors">
                   {labels[i]}

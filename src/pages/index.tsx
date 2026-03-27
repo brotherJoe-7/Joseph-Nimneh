@@ -74,9 +74,15 @@ export default function Home() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center justify-center px-10 py-4 bg-red-600 text-white rounded-full font-black text-base sm:text-lg hover:bg-red-700 active:scale-95 transition-all shadow-xl shadow-red-200"
+            className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white rounded-full font-black text-base sm:text-lg hover:bg-red-700 active:scale-95 transition-all shadow-xl shadow-red-200"
           >
             Explore My Work <ArrowRight className="ml-2" size={20} />
+          </Link>
+          <Link
+            href="/resume"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 border-2 border-slate-100 rounded-full font-black text-base sm:text-lg hover:border-red-600 hover:text-red-600 active:scale-95 transition-all shadow-sm"
+          >
+            View Resume <span className="ml-2 opacity-30">↗</span>
           </Link>
           <a
             href="/Joseph_Nimneh_Resume.pdf"

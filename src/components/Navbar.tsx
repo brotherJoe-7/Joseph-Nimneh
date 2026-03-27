@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -15,6 +15,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Resume', href: '/resume' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -75,9 +76,9 @@ export default function Navbar() {
               href="/Joseph_Nimneh_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-black uppercase tracking-widest text-slate-700 hover:text-red-600 transition-colors mr-2"
+              className="px-4 py-2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-red-700 transition-all shadow-lg shadow-red-900/10 active:scale-95 flex items-center gap-2"
             >
-              Resume <span className="text-red-600 font-normal ml-0.5">↗</span>
+              PDF <Download size={14} className="stroke-[3]" />
             </a>
             <a
               href="https://github.com/brotherJoe-7"
