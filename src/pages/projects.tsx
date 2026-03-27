@@ -3,42 +3,63 @@ import SectionTitle from '@/components/SectionTitle';
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Briefcase } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProjectsPage() {
   return (
-    <div className="container mx-auto px-6 py-20 pb-40">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-32">
+
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <SectionTitle 
-          title="Project Anthology" 
-          subtitle="A comprehensive showcase of my work in Software Engineering, Cybersecurity, and AI Infrastructure."
+        <SectionTitle
+          title="Project Anthology"
+          subtitle="Real-world applications built across web, AI, mobile, and backend infrastructure — each solving a genuine problem."
         />
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      {/* Project grid — 1 col mobile, 2 col tablet, 3 col desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
         {projects.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
       </div>
 
-      <motion.div 
+      {/* Custom work CTA */}
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-32 p-16 bg-slate-50 rounded-[3rem] border border-slate-100 text-center relative overflow-hidden group"
+        className="mt-24 rounded-3xl overflow-hidden relative"
       >
-        <div className="absolute top-0 left-0 w-2 h-full bg-red-600 group-hover:w-4 transition-all duration-500"></div>
-        <h3 className="text-3xl font-black mb-6 tracking-tight text-slate-900">Custom Engineering Solutions</h3>
-        <p className="text-slate-500 mb-10 max-w-2xl mx-auto font-medium text-lg leading-relaxed">
-          Need a specialized system audit, a secure cloud migration, or an AI-driven automation tool? Let&apos;s discuss your specific technical requirements.
-        </p>
-        <a href="mailto:contact@josephnimneh.dev" className="inline-flex items-center px-10 py-5 bg-slate-900 text-white rounded-full font-black uppercase tracking-widest hover:bg-red-600 transition-all shadow-xl shadow-slate-200">
-          Inquire for Custom Work <ArrowRight className="ml-3" size={20} />
-        </a>
+        <div className="bg-slate-900 p-8 sm:p-14">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-red-600/10 rounded-full -mr-36 -mt-36 blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-red-600/20 rounded-2xl flex items-center justify-center">
+                  <Briefcase size={20} className="text-red-400" />
+                </div>
+                <span className="text-red-400 text-xs font-black uppercase tracking-widest">Open for Work</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-3">
+                Have a Project in Mind?
+              </h3>
+              <p className="text-slate-400 font-medium leading-relaxed max-w-lg">
+                Open to internships, freelance work, and collaborative projects in AI, software development, and cybersecurity.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-red-600 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-red-700 active:scale-95 transition-all shadow-xl shadow-red-900/30 whitespace-nowrap"
+            >
+              Get in Touch <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
