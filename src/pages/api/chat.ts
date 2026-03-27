@@ -58,8 +58,16 @@ export default async function handler(req: Request) {
     return result.toDataStreamResponse();
   } catch (error: any) {
     console.error('AI Chat Error:', error);
-    return new Response(JSON.stringify({ error: error.message || 'An error occurred during chat.' }), {
-      status: 500,
+    
+    // Extract more meaningful error information if available
+    const errorDetails = error.message || 'An error occurred during chat.';
+    const statusCode = error.status || 500;
+    
+    return new Response(JSON.stringify({ 
+      error: `AI Error (${statusCode}): ${errorDetails}`,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
+    }), {
+      status: statusCode,
       headers: { 'Content-Type': 'application/json' },
     });
   }
