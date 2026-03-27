@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-sitemap",
+    "build": "next build && next-sitemap --config next-sitemap.config.cjs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +14,9 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@portabletext/react": "^6.0.3",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.18.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@vercel/analytics": "^2.0.1",
     "@waline/client": "^3.13.0",
@@ -21,10 +24,13 @@
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.477.0",
     "next": "^16.2.1",
+    "next-sanity": "^12.1.6",
     "next-seo": "^7.2.0",
     "next-sitemap": "^4.2.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "sanity": "^5.18.0",
+    "styled-components": "^6.3.12",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

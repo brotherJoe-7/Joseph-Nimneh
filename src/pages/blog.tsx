@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, Shield, Cpu, Terminal } from 'lucide-react';
 import Link from 'next/link';
 import { blogPosts } from '@/data/blog';
+import { client } from '../../sanity/lib/client';
+import groq from 'groq';
 
 const tagIcons: Record<string, React.ReactNode> = {
   'Cybersecurity':       <Shield size={16} />,
@@ -11,7 +13,16 @@ const tagIcons: Record<string, React.ReactNode> = {
   'Software Engineering':<Terminal size={16} />,
 };
 
-export default function BlogPage() {
+export default function BlogPage({ sanityPosts = [] }: { sanityPosts: any[] }) {
+  const displayPosts = sanityPosts.length > 0 ? sanityPosts : blogPosts;
+
+  const formatDate = (dateStr?: string) => {
+    if (!dateStr) return '';
+    try {
+      return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch { return dateStr; }
+  };
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-40">
       <SectionTitle
@@ -21,9 +32,9 @@ export default function BlogPage() {
 
       {/* Post grid */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-        {blogPosts.map((post, i) => (
+        {displayPosts.map((post, i) => (
           <motion.article
-            key={post.id}
+            key={post._id || post.id}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -31,17 +42,17 @@ export default function BlogPage() {
             className="group bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col"
           >
             {/* Colour tag bar */}
-            <div className={`h-1.5 w-full ${post.id === 1 ? 'bg-red-500' : post.id === 2 ? 'bg-purple-500' : 'bg-blue-500'}`} />
+            <div className={`h-1.5 w-full ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-purple-500' : 'bg-blue-500'}`} />
 
             <div className="p-8 flex flex-col flex-grow">
               {/* Tag + meta */}
               <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
-                <span className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ${post.tagColor}`}>
+                <span className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ${post.tagColor || 'bg-slate-100 text-slate-600'}`}>
                   {tagIcons[post.tag] ?? null}
                   {post.tag}
                 </span>
                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
-                  <Clock size={11} /> {post.readTime}
+                  <Clock size={11} /> {post.readTime || '5 min read'}
                 </span>
               </div>
 
@@ -58,7 +69,7 @@ export default function BlogPage() {
               {/* Footer row */}
               <div className="flex items-center justify-between pt-5 border-t border-slate-50">
                 <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
-                  <Calendar size={12} /> {post.date}
+                  <Calendar size={12} /> {post.publishedAt ? formatDate(post.publishedAt) : post.date}
                 </span>
                 <Link
                   href={`/blog/${post.slug}`}
@@ -101,4 +112,29 @@ export default function BlogPage() {
       </motion.div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const query = groq`
+    *[_type == "post"] | order(publishedAt desc) {
+      _id,
+      title,
+      "slug": slug.current,
+      "tag": categories[0]->title,
+      "tagColor": categories[0]->color,
+      publishedAt,
+      excerpt,
+      readTime
+    }
+  `;
+  
+  try {
+    const sanityPosts = await client.fetch(query);
+    return {
+      props: { sanityPosts },
+      revalidate: 10,
+    };
+  } catch (error) {
+    return { props: { sanityPosts: [] }, revalidate: 10 };
+  }
 }
