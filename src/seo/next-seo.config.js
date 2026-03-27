@@ -8,7 +8,7 @@ export const nextSeoConfig = {
     site_name: "Joseph Nimneh",
     images: [
       {
-        url: "https://joseph-nimneh.vercel.app/profile.jpg",
+        url: "https://joseph-nimneh.vercel.app/profile.jpeg",
         width: 1200,
         height: 630,
         alt: "Joseph Nimneh Portfolio",

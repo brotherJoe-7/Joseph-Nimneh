@@ -22,7 +22,7 @@ export default function BlogPostPage({ post }: Props) {
       title={post.title}
       description={post.excerpt}
       ogUrl={`/blog/${post.slug}`}
-      ogImage={`${SITE_URL}/profile.jpg`}
+      ogImage={`${SITE_URL}/profile.jpeg`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-40 max-w-3xl">
 

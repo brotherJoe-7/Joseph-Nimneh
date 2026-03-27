@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: "Direct Access Syndicate",
     description: "A professional services and networking platform designed to connect skilled IT professionals and businesses, streamlining direct engagement and project coordination.",
     tags: ["React", "Next.js", "TailwindCSS", "TypeScript"],
-    image: "/projects/leone-ai.png",
+    image: "/projects/direct-access.png",
     liveUrl: "https://direct-access-syndicate.vercel.app/",
     githubUrl: "https://github.com/brotherJoe-7",
     featured: true,

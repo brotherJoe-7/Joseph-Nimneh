@@ -25,7 +25,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-red-600 shadow-2xl shadow-red-100"
         >
-          <Image src="/profile.jpg" alt="Joseph Nimneh" layout="fill" objectFit="cover" priority />
+          <Image src="/profile.jpeg" alt="Joseph Nimneh" layout="fill" objectFit="cover" priority />
         </motion.div>
 
         {/* Status badge */}

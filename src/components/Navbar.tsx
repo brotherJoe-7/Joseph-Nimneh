@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,8 +41,16 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
 
         {/* Logo */}
-        <Link href="/" className="text-3xl font-black tracking-tighter text-red-600 leading-none">
-          JN.
+        <Link href="/" className="flex items-center gap-2 leading-none">
+          <Image
+            src="/logo.png"
+            alt="Joseph Nimneh logo"
+            width={44}
+            height={44}
+            className="rounded-lg object-contain"
+            priority
+          />
+          <span className="text-2xl font-black tracking-tighter text-red-600">JN.</span>
         </Link>
 
         {/* Desktop links */}
