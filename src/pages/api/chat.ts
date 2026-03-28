@@ -10,7 +10,7 @@ export default async function handler(req: Request) {
   try {
     const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: 'AI Error: Google API Key is missing. Please add it to your environment variables.' }), {
+      return new Response(JSON.stringify({ message: 'AI Error: Google API Key is missing. Please add it to your environment variables.' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -19,7 +19,7 @@ export default async function handler(req: Request) {
     const { messages } = await req.json();
 
     const result = await streamText({
-      model: google('models/gemini-1.5-pro-latest'),
+      model: google('gemini-1.5-pro-latest'),
       messages,
       system: `
         You are "Joseph-AI", the official personal assistant for Joseph Nimneh's professional portfolio. 
@@ -64,7 +64,7 @@ export default async function handler(req: Request) {
     const statusCode = error.status || 500;
     
     return new Response(JSON.stringify({ 
-      error: `AI Error (${statusCode}): ${errorDetails}`,
+      message: `AI Error (${statusCode}): ${errorDetails}`,
       stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
     }), {
       status: statusCode,
