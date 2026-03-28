@@ -10,9 +10,9 @@ export default async function handler(req: Request) {
   try {
     const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     if (!apiKey) {
-      return new Response(JSON.stringify({ message: 'AI Error: Google API Key is missing. Please add it to your environment variables.' }), {
+      return new Response('AI Error: Google API Key is missing. Please add "GOOGLE_GENERATIVE_AI_API_KEY" to your environment variables or Vercel settings.', {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
       });
     }
 
@@ -63,12 +63,9 @@ export default async function handler(req: Request) {
     const errorDetails = error.message || 'An error occurred during chat.';
     const statusCode = error.status || 500;
     
-    return new Response(JSON.stringify({ 
-      message: `AI Error (${statusCode}): ${errorDetails}`,
-      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
-    }), {
+    return new Response(`AI Error (${statusCode}): ${errorDetails}`, {
       status: statusCode,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
     });
   }
 }
