@@ -19,7 +19,7 @@ export default async function handler(req: Request) {
     const { messages } = await req.json();
 
     const result = await streamText({
-      model: google('gemini-1.5-flash'),
+      model: google('gemini-pro'),
       messages,
       system: `
         You are "Joseph-AI", the official personal assistant for Joseph Nimneh's professional portfolio. 
