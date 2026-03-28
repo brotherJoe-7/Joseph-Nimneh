@@ -1,9 +1,9 @@
 import { google } from '@ai-sdk/google';
 import { streamText } from 'ai';
 
-// Set the runtime to edge for best performance
 export const config = {
   runtime: 'edge',
+  regions: ['iad1'], // Force Washington D.C. region to bypass Google AI's strict EU/UK IP restrictions for free tier keys
 };
 
 export default async function handler(req: Request) {
