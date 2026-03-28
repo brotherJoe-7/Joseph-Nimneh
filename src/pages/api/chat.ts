@@ -55,7 +55,15 @@ export default async function handler(req: Request) {
       `,
     });
 
-    return result.toDataStreamResponse();
+    return result.toDataStreamResponse({
+      getErrorMessage: (error) => {
+        console.error('Inner Stream Error:', error);
+        if (error == null) return 'unknown error';
+        if (typeof error === 'string') return error;
+        if (error instanceof Error) return error.message;
+        return JSON.stringify(error);
+      }
+    });
   } catch (error: any) {
     console.error('AI Chat Error:', error);
     
