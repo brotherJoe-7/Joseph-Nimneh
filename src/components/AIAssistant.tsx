@@ -40,7 +40,7 @@ export default function AIAssistant() {
             initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[60] w-full h-full sm:w-96 sm:h-[500px] bg-white sm:rounded-[2rem] shadow-2xl border border-slate-100 flex flex-col overflow-hidden"
+            className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 z-[60] w-full h-full sm:w-96 sm:h-[500px] bg-white dark:bg-slate-900 sm:rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-800 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-6 bg-red-600 text-white flex items-center gap-3">
@@ -69,15 +69,15 @@ export default function AIAssistant() {
             {/* Messages Area */}
             <div 
               ref={scrollRef}
-              className="flex-grow p-6 overflow-y-auto space-y-4 bg-slate-50/50"
+              className="flex-grow p-6 overflow-y-auto space-y-4 bg-slate-50/50 dark:bg-slate-950/50"
             >
               {messages.length === 0 && (
                 <div className="text-center py-8">
-                  <div className="w-12 h-12 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Sparkles size={24} />
                   </div>
-                  <p className="text-slate-900 font-black text-sm mb-2">How can I help you?</p>
-                  <p className="text-slate-500 text-xs font-medium px-4">Ask me about Joseph's tech stack, detailed projects, or how to contact him.</p>
+                  <p className="text-slate-900 dark:text-white font-black text-sm mb-2">How can I help you?</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs font-medium px-4">Ask me about Joseph's tech stack, detailed projects, or how to contact him.</p>
                 </div>
               )}
               
@@ -87,13 +87,13 @@ export default function AIAssistant() {
                   className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div className={`max-w-[85%] flex gap-2 ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${m.role === 'user' ? 'bg-slate-200 text-slate-600' : 'bg-red-100 text-red-600'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${m.role === 'user' ? 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400' : 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400'}`}>
                       {m.role === 'user' ? <User size={14} /> : <Bot size={14} />}
                     </div>
                     <div className={`p-4 rounded-2xl text-sm font-medium leading-relaxed shadow-sm ${
                       m.role === 'user' 
                         ? 'bg-red-600 text-white rounded-tr-none' 
-                        : 'bg-white text-slate-700 border border-slate-100 rounded-tl-none'
+                        : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-100 dark:border-slate-700 rounded-tl-none'
                     }`}>
                       {m.content}
                     </div>
@@ -103,10 +103,10 @@ export default function AIAssistant() {
               
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-white border border-slate-100 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
-                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" />
-                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.2s]" />
-                    <span className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.4s]" />
+                  <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full animate-bounce" />
+                    <span className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full animate-bounce [animation-delay:0.2s]" />
+                    <span className="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-600 rounded-full animate-bounce [animation-delay:0.4s]" />
                   </div>
                 </div>
               )}
@@ -126,18 +126,18 @@ export default function AIAssistant() {
             {/* Input Area */}
             <form 
               onSubmit={handleSubmit}
-              className="p-4 bg-white border-t border-slate-100 flex gap-2"
+              className="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex gap-2"
             >
               <input
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Ask me anything about Joseph..."
-                className="flex-grow px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600 font-medium"
+                className="flex-grow px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-600 font-medium text-slate-900 dark:text-white"
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="w-11 h-11 bg-red-600 text-white rounded-xl flex items-center justify-center hover:bg-red-700 disabled:bg-slate-200 disabled:text-slate-400 transition-all shadow-lg shadow-red-900/10"
+                className="w-11 h-11 bg-red-600 text-white rounded-xl flex items-center justify-center hover:bg-red-700 disabled:bg-slate-200 dark:disabled:bg-slate-800 disabled:text-slate-400 transition-all shadow-lg shadow-red-900/10"
               >
                 <Send size={18} />
               </button>

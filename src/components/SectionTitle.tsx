@@ -15,7 +15,7 @@ export default function SectionTitle({ title, subtitle, align = 'left', invert =
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className={`text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase italic ${invert ? 'text-white' : 'text-slate-900'}`}
+        className={`text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase italic ${invert ? 'text-white' : 'text-slate-900 dark:text-white'}`}
       >
         {title}
       </motion.h2>
@@ -25,7 +25,7 @@ export default function SectionTitle({ title, subtitle, align = 'left', invert =
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className={`max-w-3xl text-xl font-medium leading-relaxed ${invert ? 'text-white/70' : 'text-slate-500'}`}
+          className={`max-w-3xl text-xl font-medium leading-relaxed ${invert ? 'text-white/70' : 'text-slate-500 dark:text-slate-400'}`}
         >
           {subtitle}
         </motion.p>

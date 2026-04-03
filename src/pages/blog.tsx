@@ -39,7 +39,7 @@ export default function BlogPage({ sanityPosts = [] }: { sanityPosts: any[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group bg-white border border-slate-100 rounded-[2rem] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col"
+            className="group bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col"
           >
             {/* Colour tag bar */}
             <div className={`h-1.5 w-full ${i % 3 === 0 ? 'bg-red-500' : i % 3 === 1 ? 'bg-purple-500' : 'bg-blue-500'}`} />
@@ -57,23 +57,23 @@ export default function BlogPage({ sanityPosts = [] }: { sanityPosts: any[] }) {
               </div>
 
               {/* Title */}
-              <h2 className="text-xl font-black leading-snug text-slate-900 mb-4 group-hover:text-red-600 transition-colors">
+              <h2 className="text-xl font-black leading-snug text-slate-900 dark:text-white mb-4 group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
                 {post.title}
               </h2>
 
               {/* Excerpt */}
-              <p className="text-slate-500 text-sm font-medium leading-relaxed flex-grow mb-6">
+              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed flex-grow mb-6">
                 {post.excerpt}
               </p>
 
               {/* Footer row */}
-              <div className="flex items-center justify-between pt-5 border-t border-slate-50">
-                <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-slate-400">
+              <div className="flex items-center justify-between pt-5 border-t border-slate-50 dark:border-slate-800">
+                <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">
                   <Calendar size={12} /> {post.publishedAt ? formatDate(post.publishedAt) : post.date}
                 </span>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-red-600 hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-red-600 dark:text-red-500 hover:gap-3 transition-all"
                 >
                   Read <ArrowRight size={14} />
                 </Link>
@@ -88,7 +88,7 @@ export default function BlogPage({ sanityPosts = [] }: { sanityPosts: any[] }) {
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="mt-28 p-10 sm:p-14 bg-slate-900 rounded-[2.5rem] shadow-2xl overflow-hidden relative"
+        className="mt-28 p-10 sm:p-14 bg-slate-900 rounded-[2.5rem] shadow-2xl overflow-hidden relative dark:bg-slate-950 dark:border dark:border-slate-800"
       >
         <div className="absolute top-0 right-0 w-80 h-80 bg-red-600/10 rounded-full -mr-40 -mt-40 blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">

@@ -6,6 +6,7 @@ import { Menu, X, Github, Linkedin, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import ThemeToggle from './ThemeToggle';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -35,8 +36,8 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur-md py-2 sm:py-3 shadow-md border-b border-slate-100'
-          : 'bg-white/80 backdrop-blur-sm py-4 sm:py-5'
+          ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-md py-2 sm:py-3 shadow-md border-b border-slate-100 dark:border-slate-800'
+          : 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm py-4 sm:py-5'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
@@ -63,34 +64,36 @@ export default function Navbar() {
               className={cn(
                 'text-sm font-black uppercase tracking-widest transition-all pb-0.5',
                 router.pathname === link.href
-                  ? 'text-red-600 border-b-2 border-red-600'
-                  : 'text-slate-700 hover:text-red-600'
+                  ? 'text-red-600 border-b-2 border-red-600 dark:text-red-500 dark:border-red-500'
+                  : 'text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500'
               )}
             >
               {link.name}
             </Link>
           ))}
 
-          <div className="flex items-center gap-4 border-l border-slate-200 pl-8">
-
-            <a
-              href="https://github.com/brotherJoe-7"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-slate-400 hover:text-red-600 transition-colors"
-            >
-              <Github size={22} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/joseph-nimneh-597782296"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-slate-400 hover:text-red-600 transition-colors"
-            >
-              <Linkedin size={22} />
-            </a>
+          <div className="flex items-center gap-6 border-l border-slate-200 dark:border-slate-800 pl-8">
+            <ThemeToggle />
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/brotherJoe-7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-slate-400 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                <Github size={22} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/joseph-nimneh-597782296"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-slate-400 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+              >
+                <Linkedin size={22} />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -111,9 +114,10 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-100 shadow-2xl rounded-b-[2.5rem]"
+            className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-b border-slate-100 dark:border-slate-800 shadow-2xl rounded-b-[2.5rem]"
           >
             <div className="flex flex-col items-center gap-7 py-12 px-6">
+              <ThemeToggle />
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

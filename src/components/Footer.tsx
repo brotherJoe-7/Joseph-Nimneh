@@ -10,14 +10,13 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-100 py-16">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
+    <footer className="bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 py-16 transition-colors">
+      <div className="container mx-auto px-4 sm:px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-10">
 
           {/* Brand */}
           <div>
-            <h2 className="text-4xl font-black text-red-600 tracking-tighter mb-3 leading-none">JN.</h2>
-            <p className="text-slate-500 max-w-xs font-medium leading-relaxed text-sm">
+            <h2 className="text-4xl font-black text-red-600 dark:text-red-500 tracking-tighter mb-3 leading-none">JN.</h2>
+            <p className="text-slate-500 dark:text-slate-400 max-w-xs font-medium leading-relaxed text-sm">
               IT Student building secure, intelligent, and impactful digital solutions.
             </p>
           </div>
@@ -51,16 +50,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400 text-xs font-black uppercase tracking-[0.15em]">
+        <div className="mt-14 pt-8 border-t border-slate-50 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-400 dark:text-slate-500 text-xs font-black uppercase tracking-[0.15em]">
           <p className="flex items-center justify-center sm:justify-start gap-1">
             © {new Date().getFullYear()} Joseph Nimneh. All Rights Reserved.
-            <Link href="/studio" className="ml-1 text-[10px] font-black text-red-600 opacity-60 hover:opacity-100 transition-opacity" title="Studio">
+            <Link href="/studio" className="ml-1 text-[10px] font-black text-red-600 dark:text-red-500 opacity-60 hover:opacity-100 transition-opacity" title="Studio">
               ST
             </Link>
           </p>
           <p>Built with Next.js · TypeScript · TailwindCSS</p>
         </div>
-      </div>
     </footer>
   );
 }
