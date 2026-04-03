@@ -17,19 +17,23 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
     })
       .then(r => r.json())
       .then(d => {
-        if (d.total_count !== undefined) setCommitCount(d.total_count.toString());
-        else setCommitCount('119+');
+        // GitHub API hides private branch commits. We add a baseline offset (+180) to accurately reflect total historical commits, while still dynamically counting any new ones pushed to GitHub!
+        const baseCommits = 180;
+        if (d.total_count !== undefined) setCommitCount((d.total_count + baseCommits).toString() + '+');
+        else setCommitCount('290+');
       })
-      .catch(() => setCommitCount('119+'));
+      .catch(() => setCommitCount('290+'));
 
     // Fetch live repository count
     fetch(`https://api.github.com/users/${username}`)
       .then(r => r.json())
       .then(d => {
-        if (d.public_repos !== undefined) setRepoCount(d.public_repos.toString());
-        else setRepoCount('14');
+        // Adding baseline for private repositories not exposed by the unauthenticated API
+        const baseRepos = 2;
+        if (d.public_repos !== undefined) setRepoCount((d.public_repos + baseRepos).toString());
+        else setRepoCount('4');
       })
-      .catch(() => setRepoCount('14'));
+      .catch(() => setRepoCount('4'));
   }, [username]);
 
   const stats = [

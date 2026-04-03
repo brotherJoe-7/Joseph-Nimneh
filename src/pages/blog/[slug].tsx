@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { blogPosts, BlogPost } from '@/data/blog';
 import ShareButtons from '@/components/ShareButtons';
-import WalineComments from '@/components/WalineComments';
+import DisqusComments from '@/components/DisqusComments';
 import Head from 'next/head';
 import { PortableText } from '@portabletext/react';
 import { client } from '../../../sanity/lib/client';
@@ -129,7 +129,7 @@ export default function BlogPostPage({ post, isLegacy }: Props) {
         <ShareButtons url={postUrl} title={post.title} />
 
         {/* Comments */}
-        <WalineComments path={`/blog/${post.slug}`} />
+        <DisqusComments path={`/blog/${post.slug}`} title={post.title} />
 
       </div>
     </>
