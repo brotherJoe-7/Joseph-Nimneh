@@ -166,7 +166,7 @@ const JosephResume = () => {
               <section className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-100">
                 <div className="flex items-center gap-3 mb-8 text-red-600">
                   <Zap size={24} />
-                  <h2 className="font-black uppercase tracking-widest text-sm">Hackathon Wins</h2>
+                  <h2 className="font-black uppercase tracking-widest text-sm">Hackathon Participations</h2>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {hackathons.map((hack, i) => (

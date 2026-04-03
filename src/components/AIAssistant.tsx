@@ -28,6 +28,9 @@ export default function AIAssistant() {
         aria-label="Ask Joseph AI"
       >
         {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        {!isOpen && (
+          <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-green-400 border-2 border-red-600 rounded-full animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
+        )}
       </motion.button>
 
       {/* Chat Window */}

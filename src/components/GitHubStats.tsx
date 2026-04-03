@@ -7,12 +7,36 @@ interface GitHubStatsProps {
 }
 
 export default function GitHubStats({ username }: GitHubStatsProps) {
-  // Static placeholder data - in a real app, fetch from GitHub API
+  const [commitCount, setCommitCount] = React.useState<string>('Hovering...');
+  const [repoCount, setRepoCount] = React.useState<string>('Counting...');
+
+  React.useEffect(() => {
+    // Fetch live commit count
+    fetch(`https://api.github.com/search/commits?q=author:${username}`, {
+      headers: { Accept: 'application/vnd.github.cloak-preview' }
+    })
+      .then(r => r.json())
+      .then(d => {
+        if (d.total_count !== undefined) setCommitCount(d.total_count.toString());
+        else setCommitCount('119+');
+      })
+      .catch(() => setCommitCount('119+'));
+
+    // Fetch live repository count
+    fetch(`https://api.github.com/users/${username}`)
+      .then(r => r.json())
+      .then(d => {
+        if (d.public_repos !== undefined) setRepoCount(d.public_repos.toString());
+        else setRepoCount('14');
+      })
+      .catch(() => setRepoCount('14'));
+  }, [username]);
+
   const stats = [
-    { label: 'Total Commits (2026)', value: '842+', icon: <GitCommit size={18} className="text-red-500" /> },
-    { label: 'Repositories', value: '14', icon: <Github size={18} className="text-red-500" /> },
-    { label: 'Stars Earned', value: '32', icon: <Star size={18} className="text-red-500" /> },
-    { label: 'PRs Merged', value: '45', icon: <GitPullRequest size={18} className="text-red-500" /> },
+    { label: 'Total Commits', value: commitCount, icon: <GitCommit size={18} className="text-red-500" /> },
+    { label: 'Repositories', value: repoCount, icon: <Github size={18} className="text-red-500" /> },
+    { label: 'Platform Focus', value: 'Web & AI', icon: <Star size={18} className="text-red-500" /> },
+    { label: 'Code Quality', value: 'A+', icon: <GitPullRequest size={18} className="text-red-500" /> },
   ];
 
   return (
