@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import { projects, Project } from '@/data/projects';
 import Layout from '@/components/Layout';
 
+const SITE_URL = 'https://joseph-nimneh.vercel.app';
+
 export default function ProjectCaseStudy({ project }: { project: Project }) {
   if (!project) return null;
 
@@ -14,7 +16,7 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
     <Layout
       title={project.title}
       description={project.description}
-      ogImage={project.image}
+      ogImage={`${SITE_URL}/api/og?title=${encodeURIComponent(project.title)}&tag=Case%20Study`}
       ogUrl={`/projects/${project.id}`}
     >
       <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pt-12 pb-32 transition-colors">

@@ -36,7 +36,9 @@ export default function BlogPostPage({ post, isLegacy }: Props) {
         <meta property="og:title" content={`${post.title} | Joseph Nimneh`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={postUrl} />
-        <meta property="og:image" content={`${SITE_URL}/profile.jpeg`} />
+        <meta property="og:image" content={`${SITE_URL}/api/og?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag || 'Blog')}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`${SITE_URL}/api/og?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag || 'Blog')}`} />
       </Head>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-40 max-w-3xl">
