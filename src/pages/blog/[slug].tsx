@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { blogPosts, BlogPost } from '@/data/blog';
 import ShareButtons from '@/components/ShareButtons';
-import DisqusComments from '@/components/DisqusComments';
+import SanityComments from '@/components/SanityComments';
 import Head from 'next/head';
 import { PortableText } from '@portabletext/react';
 import { client } from '../../../sanity/lib/client';
@@ -129,7 +129,7 @@ export default function BlogPostPage({ post, isLegacy }: Props) {
         <ShareButtons url={postUrl} title={post.title} />
 
         {/* Comments */}
-        <DisqusComments path={`/blog/${post.slug}`} title={post.title} />
+        <SanityComments postId={post._id} comments={post.comments || []} />
 
       </div>
     </>
@@ -161,8 +161,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // Otherwise, query Sanity Database
   const query = groq`*[_type == "post" && slug.current == $slug][0] {
-    title, excerpt, "tag": categories[0]->title, "tagColor": categories[0]->color,
-    publishedAt, readTime, body
+    _id, title, excerpt, "tag": categories[0]->title, "tagColor": categories[0]->color,
+    publishedAt, readTime, body,
+    "comments": *[_type == "comment" && post._ref == ^._id && approved == true] | order(_createdAt desc) {
+      _id, name, comment, _createdAt
+    }
   }`;
   
   try {

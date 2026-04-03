@@ -24,7 +24,6 @@
     "@waline/client": "^3.13.0",
     "ai": "^4.3.19",
     "clsx": "^2.1.1",
-    "disqus-react": "^1.1.7",
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.477.0",
     "next": "^16.2.1",
