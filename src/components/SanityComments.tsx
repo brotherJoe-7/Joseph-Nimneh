@@ -39,7 +39,9 @@ export default function SanityComments({ postId, comments }: SanityCommentsProps
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           _id: postId,
-          ...formData,
+          name: formData.name.trim() || 'Anonymous',
+          email: formData.email.trim() || 'hidden@example.com',
+          comment: formData.comment,
         }),
       });
 
@@ -121,28 +123,26 @@ export default function SanityComments({ postId, comments }: SanityCommentsProps
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className="block text-xs font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">
-                  <User size={12} className="inline mr-1.5" /> Full Name
+                  <User size={12} className="inline mr-1.5" /> Full Name (Optional)
                 </label>
                 <input
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  placeholder="John Doe"
+                  placeholder="Anonymous"
                   className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-slate-900 font-medium"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">
-                  <Mail size={12} className="inline mr-1.5" /> Email (Private)
+                  <Mail size={12} className="inline mr-1.5" /> Email (Optional & Private)
                 </label>
                 <input
                   name="email"
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  required
                   placeholder="john@example.com"
                   className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-slate-900 font-medium"
                 />

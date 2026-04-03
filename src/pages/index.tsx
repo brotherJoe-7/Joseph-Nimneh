@@ -24,7 +24,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-red-600 shadow-2xl shadow-red-100"
+          className="relative w-40 h-40 rounded-full overflow-hidden border-[6px] border-white shadow-2xl shadow-slate-200/50"
         >
           <Image src="/profile.jpeg" alt="Joseph Nimneh" layout="fill" objectFit="cover" priority />
         </motion.div>
@@ -38,7 +38,7 @@ export default function Home() {
           className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight text-slate-900 leading-none"
         >
           Joseph{' '}
-          <span className="text-red-600">Nimneh</span>
+          <span className="text-slate-900">Nimneh</span>
         </motion.h1>
 
         {/* Badge */}
@@ -46,13 +46,13 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-2xl shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-100 rounded-2xl shadow-sm"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
           </span>
-          <span className="text-[10px] font-black uppercase tracking-widest text-red-600">
+          <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">
             3rd Year IT Student @ Limkokwing University · Graduating 2027
           </span>
         </motion.div>
@@ -65,9 +65,9 @@ export default function Home() {
           className="text-slate-600 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed font-medium"
         >
           Studying Information Technology with a focus on{' '}
-          <span className="text-red-600 font-bold border-b-2 border-red-200">Cybersecurity</span>,{' '}
-          <span className="text-red-600 font-bold border-b-2 border-red-200">AI</span>, and{' '}
-          <span className="text-red-600 font-bold border-b-2 border-red-200">Software Development</span>.
+          <span className="text-slate-900 font-bold border-b-2 border-red-200">Cybersecurity</span>,{' '}
+          <span className="text-slate-900 font-bold border-b-2 border-red-200">AI</span>, and{' '}
+          <span className="text-slate-900 font-bold border-b-2 border-red-200">Software Development</span>.
         </motion.p>
 
         {/* CTA buttons - always visible */}

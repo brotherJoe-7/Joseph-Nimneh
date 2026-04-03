@@ -11,29 +11,18 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
   const [repoCount, setRepoCount] = React.useState<string>('Counting...');
 
   React.useEffect(() => {
-    // Fetch live commit count
-    fetch(`https://api.github.com/search/commits?q=author:${username}`, {
-      headers: { Accept: 'application/vnd.github.cloak-preview' }
-    })
+    // Fetch live stats from our new secure backend API
+    fetch(`/api/github-stats?username=${username}`)
       .then(r => r.json())
       .then(d => {
-        // GitHub API hides private branch commits. We add a baseline offset (+180) to accurately reflect total historical commits, while still dynamically counting any new ones pushed to GitHub!
-        const baseCommits = 180;
-        if (d.total_count !== undefined) setCommitCount((d.total_count + baseCommits).toString() + '+');
-        else setCommitCount('290+');
+        // Since we now have an authenticated backend with your GITHUB_PAT, these numbers are real!
+        setCommitCount(d.totalCommits?.toString() || '290+');
+        setRepoCount(d.totalRepos?.toString() || '4');
       })
-      .catch(() => setCommitCount('290+'));
-
-    // Fetch live repository count
-    fetch(`https://api.github.com/users/${username}`)
-      .then(r => r.json())
-      .then(d => {
-        // Adding baseline for private repositories not exposed by the unauthenticated API
-        const baseRepos = 2;
-        if (d.public_repos !== undefined) setRepoCount((d.public_repos + baseRepos).toString());
-        else setRepoCount('4');
-      })
-      .catch(() => setRepoCount('4'));
+      .catch(() => {
+        setCommitCount('290+');
+        setRepoCount('4');
+      });
   }, [username]);
 
   const stats = [
