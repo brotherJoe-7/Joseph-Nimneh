@@ -4,14 +4,16 @@ import { Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  // resolvedTheme = actual applied theme ('light' | 'dark')
+  // theme = 'system' when following OS preference — breaks isDark check
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Avoid hydration mismatch by waiting until mounted
+  // Must wait for mount to avoid SSR hydration mismatch
   useEffect(() => setMounted(true), []);
   if (!mounted) return <div className="p-2 w-10 h-10" />;
 
-  const isDark = theme === 'dark';
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <button

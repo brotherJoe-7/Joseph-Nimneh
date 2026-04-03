@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* =====================================================
+   TAILWIND V4 — CLASS-BASED DARK MODE
+   This single line makes all `dark:` utilities work.
+   It tells Tailwind: apply dark styles when any ancestor has class="dark"
+   ===================================================== */
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================
+   THEME TOKENS (Tailwind v4 @theme syntax)
+   ===================================================== */
 @theme {
   --color-primary-50: #fef2f2;
   --color-primary-100: #fee2e2;
@@ -14,6 +24,9 @@
   --color-primary-950: #450a0a;
 }
 
+/* =====================================================
+   CSS VARIABLES — Light mode defaults
+   ===================================================== */
 :root {
   --background: #ffffff;
   --foreground: #020617;
@@ -22,52 +35,25 @@
   --primary: #c02020;
 }
 
+/* Dark mode overrides — applied when .dark is on <html> */
 .dark {
   --background: #020617;
   --foreground: #f8fafc;
   --card: #0f172a;
   --card-border: #1e293b;
-  --primary: #ef4444; /* Slightly brighter red for dark mode contrast */
+  --primary: #ef4444;
+  color-scheme: dark;
 }
 
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'system-ui', sans-serif;
   scroll-behavior: smooth;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
               color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
               border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dark body {
-  color-scheme: dark;
-}
-
-@layer base {
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-  }
-}
-
-@layer components {
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-  
-  .glass-dark {
-    @apply bg-slate-900/50 backdrop-blur-lg border border-slate-700/50;
-  }
-
-  .btn-primary {
-    @apply px-6 py-3 rounded-full bg-primary-600 text-white font-medium hover:bg-primary-700 transition-all active:scale-95 shadow-lg shadow-primary-500/30;
-  }
-
-  .btn-secondary {
-    @apply px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all active:scale-95;
-  }
-}
-
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-indigo-500;
 }

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://josephnimneh.dev
+Host: https://joseph-nimneh.vercel.app
 
 # Sitemaps
-Sitemap: https://josephnimneh.dev/sitemap.xml
+Sitemap: https://joseph-nimneh.vercel.app/sitemap.xml
