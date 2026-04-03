@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://joseph-nimneh.vercel.app</loc><lastmod>2026-04-03T19:45:37.549Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/blog</loc><lastmod>2026-04-03T19:45:37.550Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/contact</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/projects</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/resume</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/blog/ai-integration-in-modern-it-infrastructure</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/blog/building-a-professional-portfolio-with-nextjs</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/blog/securing-the-future-cybersecurity-journey</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/projects/direct-access-syndicate</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/projects/leone-ai</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://joseph-nimneh.vercel.app/projects/salone-market</loc><lastmod>2026-04-03T19:45:37.551Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app</loc><lastmod>2026-04-03T19:58:31.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/blog</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/contact</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/projects</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/resume</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/blog/ai-integration-in-modern-it-infrastructure</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/blog/building-a-professional-portfolio-with-nextjs</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/blog/securing-the-future-cybersecurity-journey</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/projects/direct-access-syndicate</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/projects/leone-ai</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://joseph-nimneh.vercel.app/projects/salone-market</loc><lastmod>2026-04-03T19:58:31.518Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

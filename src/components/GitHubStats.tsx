@@ -55,7 +55,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
   const stats = [
     {
       label: 'Total Commits',
-      value: loading ? '…' : data ? `${data.totalCommits}` : '—',
+      value: loading ? '…' : data ? `${data.totalCommits}+` : '—',
       icon: <GitCommit size={18} className="text-red-500" />,
     },
     {
@@ -137,31 +137,79 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
         )}
 
         {!loading && hasCalendar && (
-          <div className="overflow-x-auto">
-            <div className="flex gap-[3px] min-w-max">
-              {data!.calendar.map((week, wi) => (
-                <div key={wi} className="flex flex-col gap-[3px]">
-                  {week.contributionDays.map((day) => (
-                    <div
-                      key={day.date}
-                      title={`${day.date}: ${day.contributionCount} contribution${day.contributionCount !== 1 ? 's' : ''}`}
-                      className={`w-3 h-3 rounded-sm transition-opacity hover:opacity-70 ${colorToClass(day.color)}`}
-                    />
+          <div className="overflow-x-auto pb-2">
+            <div className="flex min-w-max items-end">
+              {/* Day Labels */}
+              <div className="flex flex-col gap-[3px] text-[10px] text-slate-400 dark:text-slate-500 pr-2 mb-[2px]">
+                <div className="h-3" />
+                <div className="h-3 leading-3">Mon</div>
+                <div className="h-3" />
+                <div className="h-3 leading-3">Wed</div>
+                <div className="h-3" />
+                <div className="h-3 leading-3">Fri</div>
+                <div className="h-3" />
+              </div>
+
+              {/* Calendar Map */}
+              <div className="flex flex-col">
+                {/* Month Labels */}
+                <div className="flex text-[10px] text-slate-400 dark:text-slate-500 mb-1 h-3 relative">
+                  {data!.calendar.map((week, wi) => {
+                    const firstDay = week.contributionDays[0];
+                    if (!firstDay) return <div key={wi} className="w-[15px] shrink-0" />;
+                    const d = new Date(firstDay.date);
+                    // Show month label roughly when a month starts
+                    if (
+                      d.getDate() <= 7 &&
+                      (wi === 0 ||
+                        d.getMonth() !==
+                          new Date(data!.calendar[wi - 1].contributionDays[0]?.date).getMonth())
+                    ) {
+                      return (
+                        <div key={wi} className="w-[15px] shrink-0 relative">
+                          <span className="absolute z-10 pr-1 bg-white dark:bg-slate-900">
+                            {d.toLocaleString('default', { month: 'short' })}
+                          </span>
+                        </div>
+                      );
+                    }
+                    return <div key={wi} className="w-[15px] shrink-0" />;
+                  })}
+                </div>
+
+                <div className="flex gap-[3px]">
+                  {data!.calendar.map((week, wi) => (
+                    <div key={wi} className="flex flex-col gap-[3px] w-3">
+                      {/* Push down if the first week is incomplete (doesn't start on Sunday) */}
+                      {wi === 0 && week.contributionDays.length < 7 && (
+                        <div style={{ height: `${(7 - week.contributionDays.length) * 15 - 3}px` }} />
+                      )}
+                      {week.contributionDays.map((day) => (
+                        <div
+                          key={day.date}
+                          title={`${day.date}: ${day.contributionCount} contribution${
+                            day.contributionCount !== 1 ? 's' : ''
+                          }`}
+                          className={`w-3 h-3 rounded-sm transition-opacity hover:opacity-70 ${colorToClass(
+                            day.color
+                          )}`}
+                        />
+                      ))}
+                    </div>
                   ))}
                 </div>
-              ))}
+              </div>
             </div>
             {/* Legend */}
-            <div className="flex items-center gap-1.5 mt-3 justify-end">
-              <span className="text-[10px] text-slate-400 dark:text-slate-500">Less</span>
+            <div className="flex items-center gap-1.5 mt-3 justify-end text-[10px] text-slate-400 dark:text-slate-500">
+              <span>Less</span>
               {['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'].map((c) => (
                 <div key={c} className={`w-3 h-3 rounded-sm ${colorToClass(c)}`} />
               ))}
-              <span className="text-[10px] text-slate-400 dark:text-slate-500">More</span>
+              <span>More</span>
             </div>
           </div>
         )}
-
         {/* Fallback: use third-party image if no GraphQL calendar data (no PAT) */}
         {!loading && !hasCalendar && (
           <img
