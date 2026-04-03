@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SectionTitle from '@/components/SectionTitle';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, User, Send, CheckCircle2, Github, Linkedin } from 'lucide-react';
+import { Mail, MessageSquare, User, Send, CheckCircle2, Github, Linkedin, Phone } from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -35,19 +35,35 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Email */}
-          <a
-            href="mailto:brotherjoseph79@gmail.com"
-            className="group flex items-center gap-5 p-6 bg-white border border-slate-100 rounded-3xl hover:border-red-300 hover:shadow-lg transition-all"
-          >
-            <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
-              <Mail size={26} />
-            </div>
-            <div>
-              <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1">Email</p>
-              <p className="text-lg font-black text-slate-900 break-all">brotherjoseph79@gmail.com</p>
-            </div>
-          </a>
+          <div className="flex flex-col gap-4">
+            {/* Email */}
+            <a
+              href="mailto:jnimneh20@gmail.com"
+              className="group flex items-center gap-5 p-6 bg-white border border-slate-100 rounded-3xl hover:border-red-300 hover:shadow-lg transition-all"
+            >
+              <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
+                <Mail size={26} />
+              </div>
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1">Email</p>
+                <p className="text-lg font-black text-slate-900 break-all">jnimneh20@gmail.com</p>
+              </div>
+            </a>
+
+            {/* Phone */}
+            <a
+              href="tel:+23273573032"
+              className="group flex items-center gap-5 p-6 bg-white border border-slate-100 rounded-3xl hover:border-red-300 hover:shadow-lg transition-all"
+            >
+              <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
+                <Phone size={26} />
+              </div>
+              <div>
+                <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1">Phone / WhatsApp</p>
+                <p className="text-lg font-black text-slate-900 break-all">+232 735 730 32</p>
+              </div>
+            </a>
+          </div>
 
           {/* Social presence */}
           <div className="p-8 bg-slate-50 border border-slate-100 rounded-3xl">

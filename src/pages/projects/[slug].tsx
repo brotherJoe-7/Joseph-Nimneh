@@ -7,33 +7,7 @@ import {ArrowLeft, ExternalLink, Github, MonitorPlay, Layers, Cpu } from 'lucide
 import { motion } from 'framer-motion';
 import { projects, Project } from '@/data/projects';
 
-// This expands the base Project type for the case study view
-interface CaseStudy extends Project {
-  heroImage?: string;
-  problem: string;
-  solution: string;
-  keyFeatures: string[];
-  results: string;
-}
-
-// In a real app we'd fetch this extensive markdown/data from a CMS or local MDX files.
-// For the template, we'll map the basic project data to placeholder case study structures.
-const getCaseStudyData = (project: Project): CaseStudy => {
-  return {
-    ...project,
-    problem: "Identifying a gap in the market where existing solutions were either too expensive, lacked local context, or failed to provide real-time integrations necessary for users in Sierra Leone.",
-    solution: `Built ${project.title} from the ground up using modern web technologies. Focused heavily on performance, mobile-first accessibility, and seamless AI integrations to deliver a world-class user experience.`,
-    keyFeatures: [
-      "Real-time data synchronization utilizing WebSockets and optimized API polling.",
-      "Custom authentication flow ensuring bank-grade security for user data.",
-      "Responsive, accessible UI built from scratch using TailwindCSS.",
-      "AI-driven insights powered by integrated machine learning models."
-    ],
-    results: "Successfully launched the MVP, achieving significant performance benchmarks with sub-second load times and a highly engaged initial user base."
-  };
-};
-
-export default function ProjectCaseStudy({ project }: { project: CaseStudy }) {
+export default function ProjectCaseStudy({ project }: { project: Project }) {
   if (!project) return null;
 
   return (
@@ -112,7 +86,7 @@ export default function ProjectCaseStudy({ project }: { project: CaseStudy }) {
                 
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Key Features Built</h3>
                 <ul className="space-y-4">
-                  {project.keyFeatures.map((feature, i) => (
+                  {project.keyFeatures?.map((feature, i) => (
                     <li key={i} className="flex flex-start gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
                       <div className="w-6 h-6 bg-green-100 text-green-700 rounded-full flex items-center justify-center shrink-0 mt-0.5">✓</div>
                       <span className="text-slate-700 font-medium">{feature}</span>
@@ -163,11 +137,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  const caseStudyData = getCaseStudyData(project);
-
   return {
     props: {
-      project: caseStudyData,
+      project,
     },
   };
 };

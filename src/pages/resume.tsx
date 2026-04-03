@@ -74,7 +74,7 @@ const JosephResume = () => {
               <h1 className="text-5xl font-black text-slate-900 tracking-tighter mb-2">Joseph Nimneh</h1>
               <p className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-6">IT Student & Visionary Leader</p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                <a href="mailto:brotherjoseph79@gmail.com" className="flex items-center gap-2 text-slate-500 hover:text-red-600 font-bold text-xs uppercase tracking-widest transition-colors">
+                <a href="mailto:jnimneh20@gmail.com" className="flex items-center gap-2 text-slate-500 hover:text-red-600 font-bold text-xs uppercase tracking-widest transition-colors">
                   <Mail size={16} /> Email
                 </a>
                 <a href="https://www.linkedin.com/in/joseph-nimneh-597782296" target="_blank" className="flex items-center gap-2 text-slate-500 hover:text-red-600 font-bold text-xs uppercase tracking-widest transition-colors">

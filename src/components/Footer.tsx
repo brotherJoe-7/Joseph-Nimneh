@@ -5,7 +5,7 @@ import Link from 'next/link';
 const socials = [
   { icon: <Github size={22} />, href: 'https://github.com/brotherJoe-7', label: 'GitHub' },
   { icon: <Linkedin size={22} />, href: 'https://www.linkedin.com/in/joseph-nimneh-597782296', label: 'LinkedIn' },
-  { icon: <Mail size={22} />, href: 'mailto:brotherjoseph79@gmail.com', label: 'Email' },
+  { icon: <Mail size={22} />, href: 'mailto:jnimneh20@gmail.com', label: 'Email' },
 ];
 
 export default function Footer() {
