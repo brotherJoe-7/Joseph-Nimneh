@@ -34,7 +34,6 @@ export default async function handler(
       totalCommits = commitData.total_count || 0;
     } else {
       console.error(`GitHub Commit API error: ${commitRes.status}`);
-      totalCommits = 290; // Smart fallback
     }
 
     // 2. Fetch User/Repo Statistics
@@ -42,11 +41,10 @@ export default async function handler(
       headers,
     });
     
-    let totalRepos = 4;
+    let totalRepos = 0;
     if (userRes.ok) {
       const userData = await userRes.json();
       totalRepos = (userData.public_repos || 0) + (userData.total_private_repos || 0);
-      if (totalRepos < 4) totalRepos = 4; // Floor it to what the user told us
     } else {
       console.error(`GitHub User API error: ${userRes.status}`);
     }
@@ -58,6 +56,6 @@ export default async function handler(
     });
   } catch (error) {
     console.error('GitHub Stats API Error:', error);
-    return res.status(200).json({ totalCommits: 290, totalRepos: 4 }); // Fallback on total failure
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 }

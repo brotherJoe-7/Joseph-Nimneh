@@ -16,12 +16,12 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
       .then(r => r.json())
       .then(d => {
         // Since we now have an authenticated backend with your GITHUB_PAT, these numbers are real!
-        setCommitCount(d.totalCommits?.toString() || '290+');
-        setRepoCount(d.totalRepos?.toString() || '4');
+        setCommitCount((d.totalCommits || '0').toString() + '+');
+        setRepoCount((d.totalRepos || '0').toString());
       })
       .catch(() => {
-        setCommitCount('290+');
-        setRepoCount('4');
+        setCommitCount('...');
+        setRepoCount('...');
       });
   }, [username]);
 
