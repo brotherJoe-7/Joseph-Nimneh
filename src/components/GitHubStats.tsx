@@ -55,7 +55,7 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
   const stats = [
     {
       label: 'Total Commits',
-      value: loading ? '…' : data ? `${data.totalCommits}+` : '—',
+      value: loading ? '…' : data ? `${data.totalCommits}` : '—',
       icon: <GitCommit size={18} className="text-red-500" />,
     },
     {
