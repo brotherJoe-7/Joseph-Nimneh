@@ -99,7 +99,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-slate-800 p-2 rounded-xl hover:bg-red-50 transition-colors"
+          className="md:hidden text-slate-800 dark:text-slate-200 p-2 rounded-xl hover:bg-red-50 dark:hover:bg-slate-800 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -125,16 +125,16 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     'text-2xl font-black uppercase tracking-tighter',
-                    router.pathname === link.href ? 'text-red-600' : 'text-slate-800'
+                    router.pathname === link.href ? 'text-red-600 dark:text-red-500' : 'text-slate-800 dark:text-slate-200'
                   )}
                 >
                   {link.name}
                 </Link>
               ))}
 
-              <div className="flex items-center gap-8 pt-6 border-t border-slate-100 w-full justify-center">
-                <a href="https://github.com/brotherJoe-7" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600"><Github size={28} /></a>
-                <a href="https://www.linkedin.com/in/joseph-nimneh-597782296" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600"><Linkedin size={28} /></a>
+              <div className="flex items-center gap-8 pt-6 border-t border-slate-100 dark:border-slate-800 w-full justify-center">
+                <a href="https://github.com/brotherJoe-7" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600 dark:hover:text-red-500"><Github size={28} /></a>
+                <a href="https://www.linkedin.com/in/joseph-nimneh-597782296" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-red-600 dark:hover:text-red-500"><Linkedin size={28} /></a>
               </div>
             </div>
           </motion.div>

@@ -85,7 +85,7 @@ export default function Home() {
           </Link>
           <Link
             href="/resume"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 border-2 border-slate-100 rounded-full font-black text-base sm:text-lg hover:border-red-600 hover:text-red-600 active:scale-95 transition-all shadow-sm"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border-2 border-slate-100 dark:border-slate-800 rounded-full font-black text-base sm:text-lg hover:border-red-600 dark:hover:border-red-500 hover:text-red-600 dark:hover:text-red-500 active:scale-95 transition-all shadow-sm"
           >
             View Resume <span className="ml-2 opacity-30">↗</span>
           </Link>
@@ -93,11 +93,11 @@ export default function Home() {
       </section>
 
       {/* ── Career Paths ── */}
-      <section className="py-20 border-y border-slate-100">
+      <section className="py-20 border-y border-slate-100 dark:border-slate-800">
         <div className="grid md:grid-cols-3 gap-10">
           <div className="space-y-4">
             <h2 className="text-2xl font-black uppercase text-red-600 tracking-tight">Career Paths</h2>
-            <p className="text-slate-500 leading-relaxed text-sm">
+            <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
               As an IT student at Limkokwing University of Creative Technology with hands-on project experience, I am building toward a versatile technical professional career.
             </p>
           </div>
@@ -115,10 +115,10 @@ export default function Home() {
             ].map((role) => (
               <div
                 key={role}
-                className="flex items-center gap-3 p-4 bg-white border border-slate-100 rounded-2xl shadow-sm hover:border-red-300 hover:shadow-md transition-all"
+                className="flex items-center gap-3 p-4 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm hover:border-red-300 dark:hover:border-red-900 hover:shadow-md transition-all"
               >
                 <div className="w-2.5 h-2.5 bg-red-600 rounded-full shrink-0"></div>
-                <span className="text-sm font-semibold text-slate-700 leading-tight">{role}</span>
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 leading-tight">{role}</span>
               </div>
             ))}
           </div>
@@ -218,19 +218,19 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-10 bg-slate-50 border border-slate-100 rounded-3xl relative hover:shadow-xl transition-all"
+              className="p-10 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl relative hover:shadow-xl transition-all"
             >
-              <div className="text-7xl text-red-100 absolute top-6 right-8 font-black select-none leading-none">"</div>
-              <p className="text-slate-700 mb-8 font-medium leading-relaxed text-lg relative z-10">
+              <div className="text-7xl text-red-100 dark:text-red-900/30 absolute top-6 right-8 font-black select-none leading-none">"</div>
+              <p className="text-slate-700 dark:text-slate-300 mb-8 font-medium leading-relaxed text-lg relative z-10">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center font-black text-white text-xl shadow-lg shadow-red-100">
+                <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center font-black text-white text-xl shadow-lg shadow-red-100 dark:shadow-none">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-black text-slate-900">{t.name}</h4>
-                  <p className="text-slate-500 text-sm font-semibold">{t.role} · {t.company}</p>
+                  <h4 className="font-black text-slate-900 dark:text-white">{t.name}</h4>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm font-semibold">{t.role} · {t.company}</p>
                 </div>
               </div>
             </motion.div>

@@ -26,7 +26,7 @@ export default function Footer() {
             {['/', '/projects', '/blog', '/resume', '/contact'].map((href, i) => {
               const labels = ['Home', 'Projects', 'Blog', 'Resume', 'Contact'];
               return (
-                <Link key={href} href={href} className="text-slate-500 hover:text-red-600 transition-colors">
+                <Link key={href} href={href} className="text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-500 transition-colors">
                   {labels[i]}
                 </Link>
               );
@@ -42,7 +42,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all shadow-sm"
+                className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:bg-red-600 dark:hover:bg-red-600 hover:text-white dark:hover:text-white hover:border-red-600 transition-all shadow-sm"
               >
                 {s.icon}
               </a>

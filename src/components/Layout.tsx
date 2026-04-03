@@ -24,7 +24,7 @@ export default function Layout({ children, title, description, ogImage, ogUrl }:
   const resolvedUrl = ogUrl ? `${SITE_URL}${ogUrl}` : SITE_URL;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

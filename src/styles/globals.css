@@ -35,14 +35,13 @@ body {
   background: var(--background);
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
+.dark body {
+  color-scheme: dark;
 }
 
 @layer base {

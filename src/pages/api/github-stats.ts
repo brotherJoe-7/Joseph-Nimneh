@@ -22,9 +22,12 @@ export default async function handler(
   }
 
   try {
-    // 1. Fetch Commit Statistics
+    // Disable Vercel/Browser caching to ensure live data on every load
+    res.setHeader('Cache-Control', 'no-store, max-age=0, must-revalidate');
+
+    // 1. Fetch Commit Statistics (Add timestamp to bypass GitHub internal cache)
     const commitRes = await fetch(
-      `https://api.github.com/search/commits?q=author:${username}`,
+      `https://api.github.com/search/commits?q=author:${username}&t=${Date.now()}`,
       { headers }
     );
     
@@ -32,12 +35,10 @@ export default async function handler(
     if (commitRes.ok) {
       const commitData = await commitRes.json();
       totalCommits = commitData.total_count || 0;
-    } else {
-      console.error(`GitHub Commit API error: ${commitRes.status}`);
     }
 
     // 2. Fetch User/Repo Statistics
-    const userRes = await fetch(`https://api.github.com/users/${username}`, {
+    const userRes = await fetch(`https://api.github.com/users/${username}?t=${Date.now()}`, {
       headers,
     });
     
@@ -45,8 +46,6 @@ export default async function handler(
     if (userRes.ok) {
       const userData = await userRes.json();
       totalRepos = (userData.public_repos || 0) + (userData.total_private_repos || 0);
-    } else {
-      console.error(`GitHub User API error: ${userRes.status}`);
     }
 
     // 3. Return the dynamic data

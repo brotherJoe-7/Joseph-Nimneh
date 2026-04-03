@@ -33,13 +33,13 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
   ];
 
   return (
-    <div className="bg-white border border-slate-100 rounded-3xl p-8 sm:p-10 shadow-sm">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-8 border-b border-slate-50 gap-4">
+    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 sm:p-10 shadow-sm transition-colors duration-500">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-8 border-b border-slate-50 dark:border-slate-800 gap-4">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 flex items-center gap-3">
-            <Github size={28} className="text-slate-900" /> GitHub Activity
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+            <Github size={28} className="text-slate-900 dark:text-white" /> GitHub Activity
           </h3>
-          <p className="text-slate-500 mt-2 font-medium">Consistent code ships and open-source contributions.</p>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium">Consistent code ships and open-source contributions.</p>
         </div>
         <a 
           href={`https://github.com/${username}`}
@@ -61,17 +61,17 @@ export default function GitHubStats({ username }: GitHubStatsProps) {
             transition={{ delay: i * 0.1 }}
             className="flex flex-col gap-2"
           >
-            <div className="flex items-center gap-2 text-slate-500 text-xs font-black uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs font-black uppercase tracking-widest">
               {stat.icon} {stat.label}
             </div>
-            <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <div className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
               {stat.value}
             </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="mt-8 pt-8 border-t border-slate-50">
+      <div className="mt-8 pt-8 border-t border-slate-50 dark:border-slate-800">
         <img 
           src={`https://ghchart.rshah.org/dc2626/${username}`} 
           alt={`${username}'s Github chart`} 
